@@ -1,1 +1,3 @@
-# RMI_Harouna_Ragot
+# PROJETNOTE_Harouna_Ragot
+HAROUNA Laeticia 
+RAGOT Yogan
