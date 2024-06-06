@@ -9,21 +9,15 @@ import java.util.List;
 public class Client {
     public static List<Coordonnees> diviserImage(int nbPart, int largeur, int hauteur){
         // Nombre de division de l'image pour faire une grille
-        int nbLongPart = (int) (Math.sqrt(nbPart));
-        int partLargeur = largeur/nbLongPart;
-        int partHauteur = hauteur/nbLongPart;
-        int x;
-        int y = 0;
+        int partLargeur = largeur/nbPart;
+        int partHauteur = hauteur;
+        int x = 0;
         List<Coordonnees> listeCoordonnees = new ArrayList<>();
 
-        for (int i=0; i<nbLongPart; i++){
-            x=0;
-            for (int j=0; j<nbLongPart; j++){
-                listeCoordonnees.add(new Coordonnees(x,y,partLargeur,partHauteur));
-                x+= partLargeur;
+        for (int j=0; j<nbPart; j++){
+            listeCoordonnees.add(new Coordonnees(x,0,partLargeur,partHauteur));
+            x+= partLargeur;
 
-            }
-            y+= partHauteur;
         }
         //Liste des coordonnées de chacune des parties de l'images
         return listeCoordonnees;
@@ -58,7 +52,7 @@ public class Client {
                         // Calcule de l'image
                         try {
                             raytracer.Image image = serviceCalcul.calculer(scene, c);
-                            System.out.printf(c.x +" " + c.y);
+                            System.out.println(c.x +" " + c.y);
                             disp.setImage(image, c.x, c.y);
                         }
                         catch (RemoteException e){

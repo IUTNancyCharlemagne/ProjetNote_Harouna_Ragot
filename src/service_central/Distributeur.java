@@ -12,8 +12,6 @@ public class Distributeur implements ServiceDistributeur {
         if (this.listeServices.isEmpty()) {
             return null;
         }
-
-        System.out.println();
         indice++;
         if (indice >= this.listeServices.size()){
             indice = 0;
