@@ -9,8 +9,8 @@ public class LancerServeurCentral {
     public static void main(String[] args) {
         try {
             Distributeur distributeur = new Distributeur();
-            ServiceDistributeur sd = (ServiceDistributeur)UnicastRemoteObject.exportObject(distributeur,7891);
-            Registry reg = LocateRegistry.createRegistry(Integer.parseInt(args[0]));
+            ServiceDistributeur sd = (ServiceDistributeur)UnicastRemoteObject.exportObject(distributeur,0);
+            Registry reg = LocateRegistry.createRegistry(1099);
             reg.rebind("distributeur", sd);
             System.out.println("Serveur central lancé");
         } catch(RemoteException e){
